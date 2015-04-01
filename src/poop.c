@@ -49,7 +49,7 @@ int choice;
 fossil_print("Please enter a number from 1 to 5.\n");
 
 do {
-scanf("%d", &input);
+scanf("%d", &choice);
 } while (choice < 1 || choice > 5);
 
 otterfact(choice);
