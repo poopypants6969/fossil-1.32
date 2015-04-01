@@ -41,6 +41,11 @@ break;
 }
 }
 
+/*
+** COMMAND: poop
+**
+** Help.
+*/
 void poop_cmd(void)
 {
 
