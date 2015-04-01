@@ -11,7 +11,7 @@ switch (factID)
 {
 case 1:
 {
-fossil_print("The otter mating season is from December to April.");
+fossil_print("The otter mating season is from December to April.\n");
 break;
 }
 
