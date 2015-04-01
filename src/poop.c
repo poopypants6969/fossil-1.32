@@ -7,7 +7,7 @@
 
 void otterfact(int factID)
 {
-switch (choice)
+switch (factID)
 {
 case 1:
 {

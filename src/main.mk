@@ -87,6 +87,7 @@ SRC = \
   $(SRCDIR)/name.c \
   $(SRCDIR)/path.c \
   $(SRCDIR)/pivot.c \
+  $(SRCDIR)/poop.c \
   $(SRCDIR)/popen.c \
   $(SRCDIR)/pqueue.c \
   $(SRCDIR)/printf.c \
@@ -238,6 +239,7 @@ TRANS_SRC = \
   $(OBJDIR)/name_.c \
   $(OBJDIR)/path_.c \
   $(OBJDIR)/pivot_.c \
+  $(OBJDIR)/poop_.c \
   $(OBJDIR)/popen_.c \
   $(OBJDIR)/pqueue_.c \
   $(OBJDIR)/printf_.c \
@@ -358,6 +360,7 @@ OBJ = \
  $(OBJDIR)/name.o \
  $(OBJDIR)/path.o \
  $(OBJDIR)/pivot.o \
+ $(OBJDIR)/poop.o \
  $(OBJDIR)/popen.o \
  $(OBJDIR)/pqueue.o \
  $(OBJDIR)/printf.o \
@@ -589,6 +592,7 @@ $(OBJDIR)/headers:	$(OBJDIR)/page_index.h $(OBJDIR)/builtin_data.h $(OBJDIR)/mak
 	$(OBJDIR)/name_.c:$(OBJDIR)/name.h \
 	$(OBJDIR)/path_.c:$(OBJDIR)/path.h \
 	$(OBJDIR)/pivot_.c:$(OBJDIR)/pivot.h \
+	$(OBJDIR)/poop_.c:$(OBJDIR)/poop.h \
 	$(OBJDIR)/popen_.c:$(OBJDIR)/popen.h \
 	$(OBJDIR)/pqueue_.c:$(OBJDIR)/pqueue.h \
 	$(OBJDIR)/printf_.c:$(OBJDIR)/printf.h \
@@ -1224,6 +1228,14 @@ $(OBJDIR)/pivot.o:	$(OBJDIR)/pivot_.c $(OBJDIR)/pivot.h $(SRCDIR)/config.h
 	$(XTCC) -o $(OBJDIR)/pivot.o -c $(OBJDIR)/pivot_.c
 
 $(OBJDIR)/pivot.h:	$(OBJDIR)/headers
+
+$(OBJDIR)/poop_.c:	$(SRCDIR)/poop.c $(OBJDIR)/translate
+	$(OBJDIR)/translate $(SRCDIR)/poop.c >$@
+
+$(OBJDIR)/poop.o:	$(OBJDIR)/poop_.c $(OBJDIR)/poop.h $(SRCDIR)/config.h
+	$(XTCC) -o $(OBJDIR)/poop.o -c $(OBJDIR)/poop_.c
+
+$(OBJDIR)/poop.h:	$(OBJDIR)/headers
 
 $(OBJDIR)/popen_.c:	$(SRCDIR)/popen.c $(OBJDIR)/translate
 	$(OBJDIR)/translate $(SRCDIR)/popen.c >$@

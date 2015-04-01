@@ -281,6 +281,7 @@ SRC   = add_.c \
         name_.c \
         path_.c \
         pivot_.c \
+        poop_.c \
         popen_.c \
         pqueue_.c \
         printf_.c \
@@ -431,6 +432,7 @@ OBJ   = $(OX)\add$O \
         $(OX)\name$O \
         $(OX)\path$O \
         $(OX)\pivot$O \
+        $(OX)\poop$O \
         $(OX)\popen$O \
         $(OX)\pqueue$O \
         $(OX)\printf$O \
@@ -606,6 +608,7 @@ $(OX)\linkopts: $B\win\Makefile.msc
 	echo $(OX)\name.obj >> $@
 	echo $(OX)\path.obj >> $@
 	echo $(OX)\pivot.obj >> $@
+	echo $(OX)\poop.obj >> $@
 	echo $(OX)\popen.obj >> $@
 	echo $(OX)\pqueue.obj >> $@
 	echo $(OX)\printf.obj >> $@
@@ -1193,6 +1196,12 @@ $(OX)\pivot$O : pivot_.c pivot.h
 pivot_.c : $(SRCDIR)\pivot.c
 	translate$E $** > $@
 
+$(OX)\poop$O : poop_.c poop.h
+	$(TCC) /Fo$@ -c poop_.c
+
+poop_.c : $(SRCDIR)\poop.c
+	translate$E $** > $@
+
 $(OX)\popen$O : popen_.c popen.h
 	$(TCC) /Fo$@ -c popen_.c
 
@@ -1540,6 +1549,7 @@ headers: makeheaders$E page_index.h builtin_data.h VERSION.h
 			name_.c:name.h \
 			path_.c:path.h \
 			pivot_.c:pivot.h \
+			poop_.c:poop.h \
 			popen_.c:popen.h \
 			pqueue_.c:pqueue.h \
 			printf_.c:printf.h \

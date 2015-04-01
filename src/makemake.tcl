@@ -93,7 +93,8 @@ set src {
   name
   path
   pivot
-  popen
+ poop 
+ popen
   pqueue
   printf
   publish
